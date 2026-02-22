@@ -10,9 +10,18 @@ Pilot a rocket through lethal scanner sweeps, manage armor + fuel, rescue drifti
 - Fuel management layer (`OUT OF FUEL` fail state)
 - 4-level biome cycle with infinite loop progression
 - Astronaut pickups with multiple effects
-- Score, best score, and local save persistence
-- Badge/collection album with unlock flow
-- Mobile-friendly portrait UI
+- [Score, best score, and local save persistence](file:///Users/fatih/Documents/Projeler/Oyun-Demolar%C4%B1/ECHO%20STAMP/README.md#L13)
+- [Badge/collection album with unlock flow](file:///Users/fatih/Documents/Projeler/Oyun-Demolar%C4%B1/ECHO%20STAMP/README.md#L14)
+- [Mobile-friendly portrait UI](file:///Users/fatih/Documents/Projeler/Oyun-Demolar%C4%B1/ECHO%20STAMP/README.md#L15)
+
+## Gameplay Screenshots
+
+| Menu | Gameplay | Game Over |
+| :---: | :---: | :---: |
+| ![Menu Placeholder](https://placehold.co/200x400?text=Menu+Screenshot) | ![Gameplay Placeholder](https://placehold.co/200x400?text=Gameplay+Screenshot) | ![GameOver Placeholder](https://placehold.co/200x400?text=Game+Over+Screenshot) |
+
+> [!TIP]
+> To add your own screenshots, simply place your `.png` or `.jpg` files into the `screenshots/` directory and update the links above.
 
 ## Tech
 
