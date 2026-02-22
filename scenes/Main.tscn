@@ -1,0 +1,881 @@
+[gd_scene load_steps=11 format=3 uid="uid://ch8s63klevfrt"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_g6les"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_7um3j"]
+[ext_resource type="Script" path="res://scripts/trail.gd" id="3_3ghq2"]
+[ext_resource type="Script" path="res://scripts/sweep.gd" id="4_2rjdr"]
+[ext_resource type="Script" path="res://scripts/space_background.gd" id="5_h6n8a"]
+[ext_resource type="Script" path="res://scripts/rescue_sparkles.gd" id="6_yd0mf"]
+[ext_resource type="Script" path="res://scripts/armor_meter.gd" id="7_ar0rm"]
+[ext_resource type="Script" path="res://scripts/best_celebration.gd" id="8_b35t"]
+[ext_resource type="Script" path="res://scripts/card_badge.gd" id="9_c4rd"]
+[ext_resource type="Script" path="res://scripts/ghost_marker.gd" id="10_gh0st"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_g6les")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="SpaceBackground" type="Node2D" parent="World"]
+script = ExtResource("5_h6n8a")
+
+[node name="Player" type="Node2D" parent="World"]
+script = ExtResource("2_7um3j")
+
+[node name="Trail" type="Node2D" parent="World"]
+script = ExtResource("3_3ghq2")
+
+[node name="RescueSparkles" type="Node2D" parent="World"]
+script = ExtResource("6_yd0mf")
+
+[node name="Sweep" type="Node2D" parent="World"]
+script = ExtResource("4_2rjdr")
+
+[node name="Gates" type="Node2D" parent="World"]
+
+[node name="HeartPickups" type="Node2D" parent="World"]
+
+[node name="FuelPickups" type="Node2D" parent="World"]
+
+[node name="GhostMarker" type="Node2D" parent="World"]
+script = ExtResource("10_gh0st")
+
+[node name="BgLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Background" type="ColorRect" parent="BgLayer"]
+offset_right = 720.0
+offset_bottom = 1280.0
+color = Color(0.0352941, 0.0666667, 0.133333, 1)
+
+[node name="HUDLayer" type="CanvasLayer" parent="."]
+
+[node name="BestCelebration" type="Node2D" parent="HUDLayer"]
+script = ExtResource("8_b35t")
+
+[node name="HUD" type="Control" parent="HUDLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopPanel" type="ColorRect" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 290.0
+offset_bottom = 122.0
+color = Color(0.0196078, 0.0352941, 0.0705882, 0.82)
+mouse_filter = 2
+
+[node name="SettingsButton" type="Button" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 618.0
+offset_top = 22.0
+offset_right = 700.0
+offset_bottom = 74.0
+text = "SET"
+theme_override_font_sizes/font_size = 20
+
+[node name="HelpButton" type="Button" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 22.0
+offset_right = 610.0
+offset_bottom = 74.0
+text = "HOW"
+theme_override_font_sizes/font_size = 20
+
+[node name="AlbumNavButton" type="Button" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 612.0
+offset_top = 144.0
+offset_right = 702.0
+offset_bottom = 198.0
+text = "ALB"
+theme_override_font_sizes/font_size = 20
+
+[node name="ScoreTitle" type="Label" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 24.0
+offset_right = 132.0
+offset_bottom = 52.0
+text = "SCORE"
+theme_override_font_sizes/font_size = 18
+mouse_filter = 2
+
+[node name="Score" type="Label" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 46.0
+offset_right = 170.0
+offset_bottom = 94.0
+text = "0"
+theme_override_font_sizes/font_size = 40
+mouse_filter = 2
+
+[node name="BestTitle" type="Label" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 24.0
+offset_right = 238.0
+offset_bottom = 52.0
+text = "BEST"
+theme_override_font_sizes/font_size = 18
+mouse_filter = 2
+
+[node name="Best" type="Label" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 46.0
+offset_right = 280.0
+offset_bottom = 94.0
+text = "0"
+theme_override_font_sizes/font_size = 34
+mouse_filter = 2
+
+[node name="Streak" type="Label" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 88.0
+offset_right = 280.0
+offset_bottom = 118.0
+text = "Streak: 0"
+theme_override_colors/font_color = Color(0.992157, 0.705882, 0.223529, 1)
+theme_override_font_sizes/font_size = 22
+mouse_filter = 2
+
+[node name="RescuePanel" type="ColorRect" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 14.0
+offset_right = 506.0
+offset_bottom = 122.0
+color = Color(0.0196078, 0.0352941, 0.0705882, 0.82)
+mouse_filter = 2
+
+[node name="RescueTitle" type="Label" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 24.0
+offset_right = 486.0
+offset_bottom = 52.0
+text = "RESCUE"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+mouse_filter = 2
+
+[node name="Rescue" type="Label" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 46.0
+offset_right = 486.0
+offset_bottom = 102.0
+text = "0"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.576471, 0.772549, 1, 1)
+theme_override_font_sizes/font_size = 42
+mouse_filter = 2
+
+[node name="Life" type="Label" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 96.0
+offset_right = 486.0
+offset_bottom = 120.0
+text = "Extra Life: ♥0"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.992157, 0.635294, 0.643137, 1)
+theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+
+[node name="LevelPanel" type="ColorRect" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 82.0
+offset_right = 702.0
+offset_bottom = 136.0
+color = Color(0.0196078, 0.0352941, 0.0705882, 0.82)
+mouse_filter = 2
+
+[node name="LevelLabel" type="Label" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 86.0
+offset_right = 694.0
+offset_bottom = 112.0
+text = "LEVEL 1  LOOP 1"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.862745, 0.909804, 1, 1)
+theme_override_font_sizes/font_size = 17
+mouse_filter = 2
+
+[node name="LevelTimer" type="ProgressBar" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 110.0
+offset_right = 694.0
+offset_bottom = 128.0
+max_value = 3.0
+value = 3.0
+show_percentage = false
+mouse_filter = 2
+
+[node name="ScorePop" type="Label" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 136.0
+offset_right = 444.0
+offset_bottom = 178.0
+modulate = Color(1, 1, 1, 0)
+text = "+1"
+theme_override_colors/font_color = Color(0.196078, 0.937255, 0.541176, 1)
+theme_override_font_sizes/font_size = 36
+mouse_filter = 2
+
+[node name="ChargePanel" type="ColorRect" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 1156.0
+offset_right = 550.0
+offset_bottom = 1246.0
+color = Color(0.0196078, 0.0352941, 0.0705882, 0.86)
+mouse_filter = 2
+
+[node name="ChargeHint" type="Label" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 1166.0
+offset_right = 426.0
+offset_bottom = 1192.0
+text = "ARMOR"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+mouse_filter = 2
+
+[node name="FuelPanel" type="ColorRect" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 1088.0
+offset_right = 702.0
+offset_bottom = 1150.0
+color = Color(0.0196078, 0.0352941, 0.0705882, 0.86)
+mouse_filter = 2
+
+[node name="FuelBar" type="ProgressBar" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 1124.0
+offset_right = 690.0
+offset_bottom = 1142.0
+max_value = 100.0
+value = 100.0
+show_percentage = false
+mouse_filter = 2
+
+[node name="FuelText" type="Label" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 1094.0
+offset_right = 690.0
+offset_bottom = 1122.0
+text = "FUEL 100%"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.403922, 0.909804, 0.976471, 1)
+theme_override_font_sizes/font_size = 20
+mouse_filter = 2
+
+[node name="PerfectHint" type="Label" parent="HUDLayer/HUD"]
+visible = false
+layout_mode = 0
+offset_left = 178.0
+offset_top = 1098.0
+offset_right = 542.0
+offset_bottom = 1150.0
+modulate = Color(1, 1, 1, 0)
+text = "STAMP NOW"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 0.835294, 0.372549, 1)
+theme_override_font_sizes/font_size = 28
+mouse_filter = 2
+
+[node name="Charges" type="Control" parent="HUDLayer/HUD"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 1188.0
+offset_right = 530.0
+offset_bottom = 1240.0
+script = ExtResource("7_ar0rm")
+mouse_filter = 2
+
+[node name="Center" type="CenterContainer" parent="HUDLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Status" type="Label" parent="HUDLayer/Center"]
+layout_mode = 2
+text = "Tap to Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 44
+mouse_filter = 2
+
+[node name="LevelBanner" type="Label" parent="HUDLayer/Center"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "LEVEL 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.862745, 0.909804, 1, 1)
+theme_override_font_sizes/font_size = 56
+mouse_filter = 2
+
+[node name="BadgeUnlockPanel" type="ColorRect" parent="HUDLayer"]
+visible = false
+layout_mode = 0
+offset_left = 82.0
+offset_top = 338.0
+offset_right = 638.0
+offset_bottom = 704.0
+color = Color(0.0313726, 0.0627451, 0.12549, 0.9)
+mouse_filter = 2
+
+[node name="BadgeUnlockTitle" type="Label" parent="HUDLayer/BadgeUnlockPanel"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 24.0
+offset_right = 522.0
+offset_bottom = 64.0
+text = "NEW BADGE UNLOCKED"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.992157, 0.796078, 0.203922, 1)
+theme_override_font_sizes/font_size = 34
+
+[node name="BadgeUnlockBadge" type="Control" parent="HUDLayer/BadgeUnlockPanel"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 68.0
+offset_right = 372.0
+offset_bottom = 262.0
+script = ExtResource("9_c4rd")
+
+[node name="BadgeUnlockName" type="Label" parent="HUDLayer/BadgeUnlockPanel"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 262.0
+offset_right = 526.0
+offset_bottom = 314.0
+text = "Badge Name"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 36
+
+[node name="BadgeUnlockClose" type="Button" parent="HUDLayer/BadgeUnlockPanel"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 324.0
+offset_right = 362.0
+offset_bottom = 378.0
+text = "CONTINUE"
+theme_override_font_sizes/font_size = 24
+
+[node name="BestBanner" type="ColorRect" parent="HUDLayer"]
+visible = false
+layout_mode = 0
+offset_left = 126.0
+offset_top = 458.0
+offset_right = 594.0
+offset_bottom = 746.0
+color = Color(0.0392157, 0.0627451, 0.12549, 0.72)
+mouse_filter = 2
+
+[node name="BestBannerGlow" type="ColorRect" parent="HUDLayer/BestBanner"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 456.0
+offset_bottom = 276.0
+color = Color(0.164706, 0.266667, 0.415686, 0.36)
+mouse_filter = 2
+
+[node name="BestBannerTitle" type="Label" parent="HUDLayer/BestBanner"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 52.0
+offset_right = 428.0
+offset_bottom = 124.0
+text = "NEW BEST SCORE!"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.992157, 0.796078, 0.203922, 1)
+theme_override_font_sizes/font_size = 48
+mouse_filter = 2
+
+[node name="BestBannerScore" type="Label" parent="HUDLayer/BestBanner"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 142.0
+offset_right = 428.0
+offset_bottom = 236.0
+text = "0"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 0.964706, 0.866667, 1)
+theme_override_font_sizes/font_size = 74
+mouse_filter = 2
+
+[node name="SettingsPanel" type="ColorRect" parent="HUDLayer/HUD"]
+visible = false
+layout_mode = 0
+offset_left = 92.0
+offset_top = 244.0
+offset_right = 628.0
+offset_bottom = 760.0
+color = Color(0.0470588, 0.0588235, 0.113725, 0.96)
+
+[node name="SettingsTitle" type="Label" parent="HUDLayer/HUD/SettingsPanel"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 26.0
+offset_right = 402.0
+offset_bottom = 86.0
+text = "SETTINGS"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 42
+
+[node name="MusicToggle" type="CheckBox" parent="HUDLayer/HUD/SettingsPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 124.0
+offset_right = 462.0
+offset_bottom = 172.0
+text = "Music Enabled"
+button_pressed = false
+theme_override_font_sizes/font_size = 30
+
+[node name="MusicVolumeLabel" type="Label" parent="HUDLayer/HUD/SettingsPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 190.0
+offset_right = 460.0
+offset_bottom = 232.0
+text = "Music Volume"
+theme_override_font_sizes/font_size = 26
+
+[node name="MusicVolume" type="HSlider" parent="HUDLayer/HUD/SettingsPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 236.0
+offset_right = 460.0
+offset_bottom = 268.0
+min_value = -30.0
+max_value = 0.0
+value = -12.0
+step = 1.0
+
+[node name="SfxToggle" type="CheckBox" parent="HUDLayer/HUD/SettingsPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 306.0
+offset_right = 462.0
+offset_bottom = 354.0
+text = "SFX Enabled"
+button_pressed = true
+theme_override_font_sizes/font_size = 30
+
+[node name="SfxVolumeLabel" type="Label" parent="HUDLayer/HUD/SettingsPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 372.0
+offset_right = 460.0
+offset_bottom = 414.0
+text = "SFX Volume"
+theme_override_font_sizes/font_size = 26
+
+[node name="SfxVolume" type="HSlider" parent="HUDLayer/HUD/SettingsPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 418.0
+offset_right = 460.0
+offset_bottom = 450.0
+min_value = -30.0
+max_value = 0.0
+value = -8.0
+step = 1.0
+
+[node name="CloseSettings" type="Button" parent="HUDLayer/HUD/SettingsPanel"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 456.0
+offset_right = 370.0
+offset_bottom = 510.0
+text = "Close"
+theme_override_font_sizes/font_size = 28
+
+[node name="HelpPanel" type="ColorRect" parent="HUDLayer/HUD"]
+visible = false
+layout_mode = 0
+offset_left = 82.0
+offset_top = 226.0
+offset_right = 638.0
+offset_bottom = 980.0
+color = Color(0.0470588, 0.0588235, 0.113725, 0.97)
+clip_contents = true
+
+[node name="HelpTitle" type="Label" parent="HUDLayer/HUD/HelpPanel"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 24.0
+offset_right = 456.0
+offset_bottom = 86.0
+text = "HOW TO PLAY"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 42
+
+[node name="HelpBody" type="Label" parent="HUDLayer/HUD/HelpPanel"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 110.0
+offset_right = 512.0
+offset_bottom = 560.0
+text = "• You move automatically.\n• Mission: rescue drifting astronauts in deep space.\n• Tap to STAMP and spend 1 armor charge.\n• Stamped trail survives scanner sweep.\n• If sweep hits you without active stamp shield: DEAD.\n• Fly through score orbs (planets) to gain score.\n• Armor charges regenerate over time.\n• Fuel drains over time. Collect fuel capsules.\n• Level transition refills fuel to 100%.\n• Fuel capsule gain by level: L1 +40, L2 +38, L3 +36, L4 +34.\n• Low fuel assist: capsules spawn more often below 50% and 25% fuel.\n• If fuel hits 0: OUT OF FUEL (game over).\n• Astronaut types: Blue=+1 Armor (rare), Green=+Score (common), Red=+1 Life (rarest), Violet=Armor Boost.\n• Life blocks one lethal red sweep hit.\n• Armor Boost gives +1 armor and extends shield to 1.5s for 8s.\n• Rescue Combo: consecutive rescues grant bonus score.\n• Missing an astronaut resets Rescue Combo.\n• Perfect stamp (last 0.10s) gives extra chain bonus.\n• Near Miss gives bonus if sweep barely misses you.\n• Levels: 4 stages x 30s, then LOOP continues harder.\n• Biomes by level: L1 Nebula, L2 Asteroid, L3 Plasma, L4 Solar.\n• GOLD RUSH: golden score orbs appear for big points.\n• Pack gives trail badges with scaling requirement: 500 -> 2500 -> 10000.\n• Score badges are separate: 20+=Rare, 45+=Epic, 70+=Legend.\n• Loop badges: Reach Loop 2 / 4 / 6."
+autowrap_mode = 3
+clip_text = true
+theme_override_font_sizes/font_size = 22
+
+[node name="CloseHelp" type="Button" parent="HUDLayer/HUD/HelpPanel"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 670.0
+offset_right = 376.0
+offset_bottom = 728.0
+text = "Close"
+theme_override_font_sizes/font_size = 30
+
+[node name="DeathCard" type="ColorRect" parent="HUDLayer/HUD"]
+visible = false
+layout_mode = 0
+offset_left = 120.0
+offset_top = 390.0
+offset_right = 600.0
+offset_bottom = 1120.0
+color = Color(0.0509804, 0.0196078, 0.0352941, 0.92)
+mouse_filter = 2
+
+[node name="DeathTitle" type="Label" parent="HUDLayer/HUD/DeathCard"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 66.0
+offset_right = 368.0
+offset_bottom = 134.0
+text = "DEAD"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.992157, 0.443137, 0.521569, 1)
+theme_override_font_sizes/font_size = 58
+mouse_filter = 2
+
+[node name="DeathReason" type="Label" parent="HUDLayer/HUD/DeathCard"]
+visible = false
+layout_mode = 0
+offset_left = 84.0
+offset_top = 136.0
+offset_right = 396.0
+offset_bottom = 172.0
+text = "OUT OF FUEL"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.996078, 0.709804, 0.341176, 1)
+theme_override_font_sizes/font_size = 28
+mouse_filter = 2
+
+[node name="DeathScore" type="Label" parent="HUDLayer/HUD/DeathCard"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 204.0
+offset_right = 376.0
+offset_bottom = 266.0
+text = "Score: 0"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 42
+mouse_filter = 2
+
+[node name="DeathBest" type="Label" parent="HUDLayer/HUD/DeathCard"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 274.0
+offset_right = 376.0
+offset_bottom = 330.0
+text = "Best: 0"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 36
+mouse_filter = 2
+
+[node name="DeathPerfect" type="Label" parent="HUDLayer/HUD/DeathCard"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 336.0
+offset_right = 408.0
+offset_bottom = 422.0
+text = "Perfect: 0"
+horizontal_alignment = 1
+autowrap_mode = 2
+theme_override_colors/font_color = Color(0.392157, 0.768627, 1, 1)
+theme_override_font_sizes/font_size = 27
+mouse_filter = 2
+
+[node name="DeathLoop" type="Label" parent="HUDLayer/HUD/DeathCard"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 402.0
+offset_right = 404.0
+offset_bottom = 440.0
+text = "Loop: 1  Level: 1"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.992157, 0.796078, 0.203922, 1)
+theme_override_font_sizes/font_size = 24
+mouse_filter = 2
+
+[node name="DeathPack" type="Label" parent="HUDLayer/HUD/DeathCard"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 442.0
+offset_right = 404.0
+offset_bottom = 516.0
+text = "Next Pack: 0/220"
+horizontal_alignment = 1
+autowrap_mode = 2
+theme_override_colors/font_color = Color(0.670588, 0.956863, 1, 1)
+theme_override_font_sizes/font_size = 20
+mouse_filter = 2
+
+[node name="DeathPackBar" type="ProgressBar" parent="HUDLayer/HUD/DeathCard"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 524.0
+offset_right = 386.0
+offset_bottom = 548.0
+max_value = 220.0
+show_percentage = false
+mouse_filter = 2
+
+[node name="DeathHint" type="Label" parent="HUDLayer/HUD/DeathCard"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 558.0
+offset_right = 368.0
+offset_bottom = 604.0
+text = "Tap to Retry"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 28
+mouse_filter = 2
+
+[node name="OpenPackButton" type="Button" parent="HUDLayer/HUD/DeathCard"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 614.0
+offset_right = 396.0
+offset_bottom = 672.0
+text = "Open Pack (0)"
+theme_override_font_sizes/font_size = 27
+
+[node name="AlbumButton" type="Button" parent="HUDLayer/HUD/DeathCard"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 656.0
+offset_right = 332.0
+offset_bottom = 708.0
+text = "Album"
+theme_override_font_sizes/font_size = 24
+
+[node name="PackResultPanel" type="ColorRect" parent="HUDLayer/HUD"]
+visible = false
+layout_mode = 0
+offset_left = 88.0
+offset_top = 290.0
+offset_right = 632.0
+offset_bottom = 900.0
+color = Color(0.0392157, 0.0627451, 0.12549, 0.96)
+
+[node name="PackResultTitle" type="Label" parent="HUDLayer/HUD/PackResultPanel"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 38.0
+offset_right = 418.0
+offset_bottom = 100.0
+text = "NEW CARD"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.992157, 0.796078, 0.203922, 1)
+theme_override_font_sizes/font_size = 44
+
+[node name="PackResultName" type="Label" parent="HUDLayer/HUD/PackResultPanel"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 112.0
+offset_right = 500.0
+offset_bottom = 170.0
+text = "Neon Wake"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 40
+
+[node name="PackResultBadge" type="Control" parent="HUDLayer/HUD/PackResultPanel"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 168.0
+offset_right = 406.0
+offset_bottom = 478.0
+script = ExtResource("9_c4rd")
+
+[node name="PackResultRarity" type="Label" parent="HUDLayer/HUD/PackResultPanel"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 486.0
+offset_right = 364.0
+offset_bottom = 534.0
+text = "RARE"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 32
+
+[node name="PackResultDesc" type="Label" parent="HUDLayer/HUD/PackResultPanel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 538.0
+offset_right = 488.0
+offset_bottom = 588.0
+text = "Card description"
+horizontal_alignment = 1
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 20
+
+[node name="EquipButton" type="Button" parent="HUDLayer/HUD/PackResultPanel"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 592.0
+offset_right = 402.0
+offset_bottom = 648.0
+text = "Equip"
+theme_override_font_sizes/font_size = 30
+
+[node name="ClosePackResult" type="Button" parent="HUDLayer/HUD/PackResultPanel"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 656.0
+offset_right = 362.0
+offset_bottom = 706.0
+text = "Close"
+theme_override_font_sizes/font_size = 25
+
+[node name="AlbumPanel" type="ColorRect" parent="HUDLayer/HUD"]
+visible = false
+layout_mode = 0
+offset_left = 88.0
+offset_top = 228.0
+offset_right = 632.0
+offset_bottom = 1180.0
+color = Color(0.0470588, 0.0588235, 0.113725, 0.97)
+
+[node name="AlbumTitle" type="Label" parent="HUDLayer/HUD/AlbumPanel"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 26.0
+offset_right = 394.0
+offset_bottom = 86.0
+text = "COLLECTION"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 36
+
+[node name="BadgeNeon" type="Control" parent="HUDLayer/HUD/AlbumPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 112.0
+offset_right = 186.0
+offset_bottom = 356.0
+script = ExtResource("9_c4rd")
+
+[node name="BadgeSolar" type="Control" parent="HUDLayer/HUD/AlbumPanel"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 112.0
+offset_right = 354.0
+offset_bottom = 356.0
+script = ExtResource("9_c4rd")
+
+[node name="BadgeVoid" type="Control" parent="HUDLayer/HUD/AlbumPanel"]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 112.0
+offset_right = 522.0
+offset_bottom = 356.0
+script = ExtResource("9_c4rd")
+
+[node name="BadgeScoreRare" type="Control" parent="HUDLayer/HUD/AlbumPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 358.0
+offset_right = 186.0
+offset_bottom = 602.0
+script = ExtResource("9_c4rd")
+
+[node name="BadgeScoreEpic" type="Control" parent="HUDLayer/HUD/AlbumPanel"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 358.0
+offset_right = 354.0
+offset_bottom = 602.0
+script = ExtResource("9_c4rd")
+
+[node name="BadgeScoreLegend" type="Control" parent="HUDLayer/HUD/AlbumPanel"]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 358.0
+offset_right = 522.0
+offset_bottom = 602.0
+script = ExtResource("9_c4rd")
+
+[node name="BadgeLoopI" type="Control" parent="HUDLayer/HUD/AlbumPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 604.0
+offset_right = 186.0
+offset_bottom = 848.0
+script = ExtResource("9_c4rd")
+
+[node name="BadgeLoopII" type="Control" parent="HUDLayer/HUD/AlbumPanel"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 604.0
+offset_right = 354.0
+offset_bottom = 848.0
+script = ExtResource("9_c4rd")
+
+[node name="BadgeLoopIII" type="Control" parent="HUDLayer/HUD/AlbumPanel"]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 604.0
+offset_right = 522.0
+offset_bottom = 848.0
+script = ExtResource("9_c4rd")
+
+[node name="CloseAlbum" type="Button" parent="HUDLayer/HUD/AlbumPanel"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 876.0
+offset_right = 364.0
+offset_bottom = 936.0
+text = "Close"
+theme_override_font_sizes/font_size = 30
+
+[node name="Flash" type="ColorRect" parent="HUDLayer/HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.27451, 0.356863, 0)
