@@ -16,12 +16,13 @@ Pilot a rocket through lethal scanner sweeps, manage armor + fuel, rescue drifti
 
 ## Gameplay Screenshots
 
-| Menu | Gameplay | Game Over |
-| :---: | :---: | :---: |
-| ![Menu Placeholder](https://placehold.co/200x400?text=Menu+Screenshot) | ![Gameplay Placeholder](https://placehold.co/200x400?text=Gameplay+Screenshot) | ![GameOver Placeholder](https://placehold.co/200x400?text=Game+Over+Screenshot) |
-
-> [!TIP]
-> To add your own screenshots, simply place your `.png` or `.jpg` files into the `screenshots/` directory and update the links above.
+<p align="center">
+  <img src="screenshots/Screenshot%202026-02-22%20at%2018.34.01.png" width="19%" />
+  <img src="screenshots/Screenshot%202026-02-22%20at%2018.34.30.png" width="19%" />
+  <img src="screenshots/Screenshot%202026-02-22%20at%2018.37.12.png" width="19%" />
+  <img src="screenshots/Screenshot%202026-02-22%20at%2018.38.33.png" width="19%" />
+  <img src="screenshots/Screenshot%202026-02-22%20at%2018.39.35.png" width="19%" />
+</p>
 
 ## Tech
 
